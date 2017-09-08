@@ -8,4 +8,10 @@ export default class SimpleDate {
     this.month = month;
     this.day = day;
   }
+
+  equals(date) {
+    return (this.year === date.year)
+        && (this.month === date.month)
+        && (this.day === date.day);
+  }
 }
