@@ -5,11 +5,11 @@ export default class RoutineItem {
     id,
     title,
     doneDates,
-    addedDate
+    sinceDate
   }) {
     this.id = id || uuid();
     this.title = title;
     this.doneDates = doneDates;
-    this.addedDate = addedDate;
+    this.sinceDate = sinceDate;
   }
 }
