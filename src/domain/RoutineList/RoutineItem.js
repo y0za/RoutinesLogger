@@ -12,4 +12,20 @@ export default class RoutineItem {
     this.doneDates = doneDates;
     this.sinceDate = sinceDate;
   }
+
+  isDone(targetDate) {
+    return this.doneDates.some((date) => {
+      return date.equals(targetDate);
+    });
+  }
+
+  toggleDone(targetDate) {
+    if (this.isDone(targetDate)) {
+      this.doneDates = this.doneDates.filter((date) => {
+        return date.equals(targetDate);
+      });
+    } else {
+      this.doneDates = this.doneDates.concat(targetDate);
+    }
+  }
 }
