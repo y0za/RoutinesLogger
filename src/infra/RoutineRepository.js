@@ -5,8 +5,8 @@ export class RoutineRepository {
     this.dataSet = dataSet;
   }
 
-  findById(routineID) {
-    return this.dataSet.get(routineID);
+  findById(routineId) {
+    return this.dataSet.get(routineId);
   }
 
   findAll() {
