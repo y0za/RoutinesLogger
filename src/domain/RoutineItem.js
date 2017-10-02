@@ -22,7 +22,7 @@ export default class RoutineItem {
   toggleDone(targetDate) {
     if (this.isDone(targetDate)) {
       this.doneDates = this.doneDates.filter((date) => {
-        return date.equals(targetDate);
+        return !date.equals(targetDate);
       });
     } else {
       this.doneDates = this.doneDates.concat(targetDate);
