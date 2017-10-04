@@ -9,6 +9,8 @@
   "dependencies": {
     "almin": "^0.13.11",
     "almin-react-container": "^0.3.11",
+    "assert": "^1.4.1",
+    "events": "^1.1.1",
     "react": "^16.0.0",
     "react-native": "0.48.1",
     "react-native-calendars": "^1.5.8",
