@@ -12,11 +12,11 @@ export class RoutineRepository {
     for (const [id, item] of this.dataSet) {
       items.push(item);
     }
-    return new items;
+    return items;
   }
 
   store(item) {
-    this.dataSet.set(item.id, item):
+    this.dataSet.set(item.id, item);
   }
 }
 
