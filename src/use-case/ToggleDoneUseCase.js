@@ -8,6 +8,7 @@ export default class ToggleDoneUseCase extends UseCase {
   }
 
   constructor({ routineRepository }) {
+    super();
     this.routineRepository = routineRepository;
   }
 
