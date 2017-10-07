@@ -14,4 +14,10 @@ export default class SimpleDate {
         && (this.month === date.month)
         && (this.day === date.day);
   }
+
+  toString() {
+    const month = this.month.toString().padStart(2, '0');
+    const day = this.day.toString().padStart(2, '0');
+    return `${this.year}-${month}-${day}`;
+  }
 }
