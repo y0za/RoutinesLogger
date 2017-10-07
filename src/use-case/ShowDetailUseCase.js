@@ -3,7 +3,7 @@ import { NavigationActions } from 'react-navigation';
 import routineRepository from '../infra/RoutineRepository';
 import ChangeNavigationUseCase from './ChangeNavigationUseCase';
 
-export class ShowDetailUseCase extends UseCase {
+export default class ShowDetailUseCase extends UseCase {
   static create() {
     return new ShowDetailUseCase({ routineRepository });
   }

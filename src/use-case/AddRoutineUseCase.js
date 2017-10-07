@@ -2,7 +2,7 @@ import { UseCase } from 'almin';
 import RoutineItem from '../domain/RoutineItem';
 import routineRepository from '../infra/RoutineRepository';
 
-export class AddRoutineUseCase extends UseCase {
+export default class AddRoutineUseCase extends UseCase {
   static create() {
     return new AddRoutineUseCase({ routineRepository });
   }

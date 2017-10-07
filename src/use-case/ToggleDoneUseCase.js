@@ -2,7 +2,7 @@ import { UseCase } from 'almin';
 import RoutineItem from '../domain/RoutineItem';
 import routineRepository from '../infra/RoutineRepository';
 
-export class ToggleDoneUseCase extends UseCase {
+export default class ToggleDoneUseCase extends UseCase {
   static create() {
     return new ToggleDoneUseCase({ routineRepository });
   }
