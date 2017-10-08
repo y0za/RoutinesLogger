@@ -13,9 +13,11 @@ export default class RoutineItem extends React.Component {
       : <Icon name="square-o" size={checkboxSize} color={checkboxColor} />;
 
     return (
-      <TouchableHighlight onPress={() => this.props.onPressItem(routine.title)}>
+      <TouchableHighlight onPress={() => this.props.showDetail(routine.id)}>
         <View style={styles.container}>
-          <View style={styles.checkbox}>{checkbox}</View>
+          <TouchableHighlight onPress={() => this.props.toggleDone(routine.id)}>
+            <View style={styles.checkbox}>{checkbox}</View>
+          </TouchableHighlight>
           <View style={styles.titleContainer}>
             <Text style={styles.title}>{routine.title}</Text>
           </View>
