@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const checkboxColor = '#5fba7d';
@@ -13,16 +13,16 @@ export default class RoutineItem extends React.Component {
       : <Icon name="square-o" size={checkboxSize} color={checkboxColor} />;
 
     return (
-      <TouchableHighlight onPress={() => this.props.showDetail(routine.id)}>
+      <TouchableOpacity onPress={() => this.props.showDetail(routine.id)}>
         <View style={styles.container}>
-          <TouchableHighlight onPress={() => this.props.toggleDone(routine.id)}>
+          <TouchableOpacity onPress={() => this.props.toggleDone(routine.id)}>
             <View style={styles.checkbox}>{checkbox}</View>
-          </TouchableHighlight>
+          </TouchableOpacity>
           <View style={styles.titleContainer}>
             <Text style={styles.title}>{routine.title}</Text>
           </View>
         </View>
-      </TouchableHighlight>
+      </TouchableOpacity>
     );
   }
 }
