@@ -1,4 +1,12 @@
 export default class SimpleDate {
+  static fromDate(date = new Date()) {
+    return new SimpleDate({
+      year: date.getFullYear(),
+      month: date.getMonth() + 1,
+      day: date.getDate()
+    });
+  }
+
   constructor({
     year,
     month,
