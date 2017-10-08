@@ -1,10 +1,44 @@
-import { StackNavigator } from 'react-navigation';
-import ListScreen from './component/ListScreen';
-import DetailScreen from './component/DetailScreen';
+import React from 'react';
+import { Context, Dispatcher } from 'almin';
+import AlminReactContainer from 'almin-react-container';
+import { addNavigationHelpers } from 'react-navigation';
 
-const App = StackNavigator({
-  List: { screen: ListScreen },
-  Detail: { screen: DetailScreen }
+import appLocator from './AppLocator';
+import AppNavigator from './AppNavigator';
+import AppStore from './store/AppStore';
+import SimpleDate from './domain/value/SimpleDate';
+import ChangeNavigationUseCase from './use-case/ChangeNavigationUseCase';
+import InitializeDateUseCase from './use-case/InitializeDateUseCase';
+
+const dispatcher = new Dispatcher();
+const context = new Context({
+  dispatcher,
+  store: AppStore.create()
 });
+appLocator.context = context;
 
-export default App;
+class AppWithNavigationState extends React.Component {
+  render() {
+    return (
+      <AppNavigator
+        navigation={addNavigationHelpers({
+          dispatch: (action) => context.useCase(new ChangeNavigationUseCase()).execute(action),
+          state: this.props.navigationState
+        })}
+        screenProps={{
+          routineListState: this.props.routineListState,
+          routineDetailState: this.props.routineDetailState
+        }}
+      />
+    );
+  }
+}
+
+const currentDate = new Date(Date.now());
+context.useCase(new InitializeDateUseCase()).execute(new SimpleDate({
+  year: currentDate.getFullYear(),
+  month: currentDate.getMonth() + 1,
+  day: currentDate.getDate()
+}));
+
+export default AlminReactContainer.create(AppWithNavigationState, appLocator.context);
