@@ -34,11 +34,6 @@ class AppWithNavigationState extends React.Component {
   }
 }
 
-const currentDate = new Date(Date.now());
-context.useCase(new InitializeDateUseCase()).execute(new SimpleDate({
-  year: currentDate.getFullYear(),
-  month: currentDate.getMonth() + 1,
-  day: currentDate.getDate()
-}));
+context.useCase(new InitializeDateUseCase()).execute(SimpleDate.fromDate());
 
 export default AlminReactContainer.create(AppWithNavigationState, appLocator.context);
