@@ -18,8 +18,6 @@ export default class RoutineDetailState {
   }
 
   update({ dates }) {
-    return new RoutineDetailState(
-      Object.assign({}, this, { dates })
-    );
+    return new RoutineDetailState(Object.assign({}, this, { dates }));
   }
 }

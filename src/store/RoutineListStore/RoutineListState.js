@@ -9,7 +9,7 @@ export default class RoutineListState {
       return [];
     }
 
-    return this.routineItems.map((item) => {
+    return this.routineItems.map(item => {
       return {
         id: item.id,
         title: item.title,

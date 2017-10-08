@@ -12,7 +12,10 @@ export default class NavigationState {
   reduce(payload) {
     switch (payload.type) {
       case 'ChangeNavigationUseCase':
-        const nextState = appNavigator.router.getStateForAction(payload.navigationAction, this);
+        const nextState = appNavigator.router.getStateForAction(
+          payload.navigationAction,
+          this
+        );
         return new NavigationState(nextState);
       default:
         return this;

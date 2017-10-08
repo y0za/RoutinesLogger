@@ -8,9 +8,11 @@ const checkboxSize = 40;
 export default class RoutineItem extends React.Component {
   render() {
     const routine = this.props.routine;
-    const checkbox = routine.done
-      ? <Icon name="check-square-o" size={checkboxSize} color={checkboxColor} />
-      : <Icon name="square-o" size={checkboxSize} color={checkboxColor} />;
+    const checkbox = routine.done ? (
+      <Icon name="check-square-o" size={checkboxSize} color={checkboxColor} />
+    ) : (
+      <Icon name="square-o" size={checkboxSize} color={checkboxColor} />
+    );
 
     return (
       <TouchableOpacity onPress={() => this.props.showDetail(routine.id)}>

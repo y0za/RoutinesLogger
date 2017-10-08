@@ -18,7 +18,7 @@ export default class RoutineDetailStore extends Store {
     if (newState.routineId != null) {
       const routineItem = this.routineRepository.findById(newState.routineId);
       newState = newState.update({
-        dates: routineItem.doneDates.map((date) => date.toString())
+        dates: routineItem.doneDates.map(date => date.toString())
       });
     }
     this.setState(newState);

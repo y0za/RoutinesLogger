@@ -36,9 +36,7 @@ describe('RoutineItem', () => {
     it('append target date to doneDates if it does not contain the date', () => {
       const routineItem = new RoutineItem({
         title: 'walking',
-        doneDates: [
-          new SimpleDate({ year: 2017, month: 10, day: 1 })
-        ],
+        doneDates: [new SimpleDate({ year: 2017, month: 10, day: 1 })],
         sinceDate: new SimpleDate({ year: 2017, month: 10, day: 1 })
       });
 
@@ -62,9 +60,7 @@ describe('RoutineItem', () => {
       });
 
       const targetDate = new SimpleDate({ year: 2017, month: 10, day: 2 });
-      const expectedDates = [
-        new SimpleDate({ year: 2017, month: 10, day: 1 })
-      ];
+      const expectedDates = [new SimpleDate({ year: 2017, month: 10, day: 1 })];
       routineItem.toggleDone(targetDate);
       expect(routineItem.doneDates).toEqual(expectedDates);
     });

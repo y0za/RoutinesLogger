@@ -21,9 +21,7 @@ export default class ShowDetailUseCase extends UseCase {
 
     const routineItem = this.routineRepository.findById(routineId);
 
-    this.context.useCase(
-      new ChangeNavigationUseCase()
-    ).execute(
+    this.context.useCase(new ChangeNavigationUseCase()).execute(
       NavigationActions.navigate({
         routeName: 'Detail',
         params: { title: routineItem.title }

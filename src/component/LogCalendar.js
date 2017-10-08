@@ -13,8 +13,6 @@ export default class LogCalendar extends React.Component {
   render() {
     const markedDates = this.createMarkedDates(this.props.doneDates);
 
-    return (
-      <Calendar markedDates={markedDates} />
-    );
+    return <Calendar markedDates={markedDates} />;
   }
 }

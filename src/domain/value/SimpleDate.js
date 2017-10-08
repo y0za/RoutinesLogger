@@ -7,20 +7,18 @@ export default class SimpleDate {
     });
   }
 
-  constructor({
-    year,
-    month,
-    day
-  }) {
+  constructor({ year, month, day }) {
     this.year = year;
     this.month = month;
     this.day = day;
   }
 
   equals(date) {
-    return (this.year === date.year)
-        && (this.month === date.month)
-        && (this.day === date.day);
+    return (
+      this.year === date.year &&
+      this.month === date.month &&
+      this.day === date.day
+    );
   }
 
   toString() {

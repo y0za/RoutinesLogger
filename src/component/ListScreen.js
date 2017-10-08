@@ -13,7 +13,8 @@ export default class ListScreen extends React.Component {
     headerRight: (
       <Button
         title="Add"
-        onPress={() => appLocator.context.useCase(new ShowAddRoutineUseCase()).execute()}
+        onPress={() =>
+          appLocator.context.useCase(new ShowAddRoutineUseCase()).execute()}
       />
     )
   };
@@ -24,7 +25,9 @@ export default class ListScreen extends React.Component {
 
   toggleDone(routineId) {
     const date = this.props.screenProps.routineListState.date;
-    appLocator.context.useCase(ToggleDoneUseCase.create()).execute(routineId, date);
+    appLocator.context
+      .useCase(ToggleDoneUseCase.create())
+      .execute(routineId, date);
   }
 
   render() {

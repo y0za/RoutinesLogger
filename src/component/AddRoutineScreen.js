@@ -1,29 +1,24 @@
 import React from 'react';
-import {
-  View,
-  TextInput,
-  Button,
-  StyleSheet
-} from 'react-native';
+import { View, TextInput, Button, StyleSheet } from 'react-native';
 import appLocator from '../AppLocator';
 import AddRoutineUseCase from '../use-case/AddRoutineUseCase';
 
 export default class ListScreen extends React.Component {
   static navigationOptions = {
     title: 'New Routine'
-  }
+  };
 
   constructor() {
     super();
     this.state = {
       title: ''
-    }
+    };
   }
 
   addRoutine() {
-    appLocator.context.useCase(AddRoutineUseCase.create()).execute(
-      this.state.title
-    );
+    appLocator.context
+      .useCase(AddRoutineUseCase.create())
+      .execute(this.state.title);
   }
 
   render() {
@@ -31,15 +26,10 @@ export default class ListScreen extends React.Component {
       <View>
         <TextInput
           value={this.state.title}
-          onChangeText={(text) => this.setState({ title: text })}
+          onChangeText={text => this.setState({ title: text })}
         />
-        <Button
-          title="Add Routine"
-          onPress={this.addRoutine.bind(this)}
-        />
+        <Button title="Add Routine" onPress={this.addRoutine.bind(this)} />
       </View>
     );
   }
 }
-
-

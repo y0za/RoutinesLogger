@@ -22,7 +22,8 @@ class AppWithNavigationState extends React.Component {
     return (
       <AppNavigator
         navigation={addNavigationHelpers({
-          dispatch: (action) => context.useCase(new ChangeNavigationUseCase()).execute(action),
+          dispatch: action =>
+            context.useCase(new ChangeNavigationUseCase()).execute(action),
           state: this.props.navigationState
         })}
         screenProps={{
@@ -36,4 +37,7 @@ class AppWithNavigationState extends React.Component {
 
 context.useCase(new InitializeDateUseCase()).execute(SimpleDate.fromDate());
 
-export default AlminReactContainer.create(AppWithNavigationState, appLocator.context);
+export default AlminReactContainer.create(
+  AppWithNavigationState,
+  appLocator.context
+);

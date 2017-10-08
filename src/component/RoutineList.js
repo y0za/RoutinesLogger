@@ -7,7 +7,7 @@ export default class RoutineList extends React.Component {
     return (
       <FlatList
         data={this.props.routines}
-        renderItem={({item}) => {
+        renderItem={({ item }) => {
           return (
             <RoutineItem
               routine={item}
